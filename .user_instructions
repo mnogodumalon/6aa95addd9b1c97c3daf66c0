@@ -1,0 +1,29 @@
+Sportverein TSV Hallstadt:
+
+Wir sind ein Sportverein mit rund 400 Mitgliedern in fünf Abteilungen und brauchen eine Anwendung für Mitglieder, Beiträge, Veranstaltungen und Helferschichten.
+
+Wer damit arbeitet:
+- Vorstand: pflegt Mitglieder und Abteilungen, legt Veranstaltungen an, sieht alles
+- Kassenwart: erzeugt die Jahresbeiträge für alle Mitglieder, verbucht Zahlungen, mahnt
+- Abteilungsleiter: sehen die Mitglieder ihrer Abteilung, planen Helferschichten
+- Mitglieder: sehen ihre eigenen Beiträge und Anmeldungen, melden sich zu Veranstaltungen an
+
+Abteilungen
+Name (Fußball, Turnen, Tennis, Leichtathletik, Schach), Abteilungsleiter (Mitglied), Jahresbeitrag Erwachsene, Jahresbeitrag Kinder.
+
+Mitglieder
+Mitgliedsnummer, Vorname, Nachname, Geburtsdatum, E-Mail, Telefon, Adresse, Eintrittsdatum, Austrittsdatum, Status (aktiv / passiv / ausgetreten), Beitragsklasse (Erwachsener / Kind / Familie / Ehrenmitglied), Abteilung (genau eine), SEPA-Mandat vorhanden (ja/nein), Notizen.
+
+Beiträge
+Mitglied, Jahr, Betrag, Fällig am, Status (Offen / Bezahlt / Gemahnt / Erlassen), Bezahlt am, Zahlungsart (Lastschrift / Überweisung / Bar). Pro Mitglied und Jahr gibt es genau einen Beitrag.
+
+Veranstaltungen
+Titel, Beschreibung, Datum, Uhrzeit, Ort, Abteilung (optional, sonst vereinsweit), Maximale Teilnehmer, Anmeldeschluss, Kostenbeitrag, Status (Geplant / Offen für Anmeldung / Ausgebucht / Abgesagt / Durchgeführt).
+
+Anmeldungen
+Veranstaltung, Mitglied, Angemeldet am, Anzahl Personen, Status (Angemeldet / Warteliste / Abgemeldet / Teilgenommen), Bemerkung. Ein Mitglied kann sich pro Veranstaltung nur einmal anmelden. Ist die Veranstaltung voll, landet die Anmeldung auf der Warteliste.
+
+Helferschichten
+Veranstaltung, Bezeichnung (z. B. Grillstand 14–16 Uhr), Beginn, Ende, Benötigte Helfer, Helfer (mehrere Mitglieder), Bemerkung.
+
+Wichtig: Jede Beziehung soll nur in einer Richtung gespeichert werden. Das Mitglied kennt seine Abteilung, der Beitrag kennt sein Mitglied, die Anmeldung kennt Veranstaltung und Mitglied. Bitte keine Listenfelder in der Gegenrichtung anlegen. Einzige Ausnahme ist die Helferliste an der Schicht.

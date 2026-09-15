@@ -1,0 +1,39 @@
+{
+  "pages": {
+    "en": {
+      "Aktive Mitglieder": "Active Members",
+      "Alle Beiträge sind bezahlt — alles im grünen Bereich!": "All contributions are paid — everything is in order!",
+      "Als bezahlt markieren": "Mark as Paid",
+      "Anmeldung öffnen": "Open Registration",
+      "Beitrag anlegen": "Create Contribution",
+      "Bezahlt": "Paid",
+      "Erstes Mitglied aufnehmen": "Add First Member",
+      "Gemahnte Beiträge": "Dunned Contributions",
+      "Heute: {0}": "Today: {0}",
+      "Keine Veranstaltungen in den nächsten 30 Tagen.": "No events in the next 30 days.",
+      "Keine offenen Beiträge in diesem Filter.": "No open contributions in this filter.",
+      "Lege das erste Mitglied an, um loszulegen.": "Add the first member to get started.",
+      "Nächste Veranstaltung: {0}": "Next Event: {0}",
+      "Nächste Veranstaltungen": "Upcoming Events",
+      "Offene & gemahnte Beiträge": "Open & Dunned Contributions",
+      "Offene Beiträge": "Open Contributions",
+      "Teilnahme bestätigen": "Confirm Attendance",
+      "Unbekanntes Mitglied": "Unknown Member",
+      "Unbesetzte Schichten": "Unfilled Shifts",
+      "Veranstaltung": "Event",
+      "Veranstaltung anlegen": "Create Event",
+      "Veranstaltungen (30 Tage)": "Events (30 Days)",
+      "Willkommen beim TSV Hallstadt!": "Welcome to TSV Hallstadt!",
+      "fällig": "due",
+      "{0} aktive Mitglieder im Verein": "{0} active members in the club",
+      "{0} gemahnte Beiträge warten auf Bearbeitung": "{0} dunned contributions pending review",
+      "{0} — Anmeldung geöffnet": "{0} — Registration Opened",
+      "{0} — Beitrag als bezahlt markiert": "{0} — Contribution Marked as Paid",
+      "{0} — Teilnahme bestätigt": "{0} — Attendance Confirmed",
+      "{0} — verschoben": "{0} — postponed",
+      "— Beitrag gemahnt. Bitte zeitnah klären.": "— Contribution dunned. Please resolve promptly.",
+      "— Beiträge gemahnt. Bitte zeitnah klären.": "— Contributions dunned. Please resolve promptly."
+    }
+  },
+  "v": 1
+}

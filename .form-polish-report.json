@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Abteilungen": {
+      "placeholders_set": 4,
+      "defaults_keys": [],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten-Verwaltung. Zwei Preis-Felder (Beitragssätze) haben keine Beziehung untereinander und zu anderen Feldern — keine Aggregation, keine Multiplikation."
+    },
+    "Mitglieder": {
+      "placeholders_set": 17,
+      "defaults_keys": ["eintrittsdatum", "status", "beitragsklasse"],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten mit Personendaten und Administrativem. Das applookup auf Abteilungen führt zu deren Beitragssätzen, aber ein Mitglied rechnet diese Sätze nicht neu — die werden vom System abgerufen. Keine Berechnung."
+    },
+    "Beiträge": {
+      "placeholders_set": 7,
+      "defaults_keys": ["status", "faellig_am"],
+      "computed_keys": [],
+      "reason": "Manuelle Beitragsverwaltung pro Mitglied und Jahr. Der Betrag wird vom Inhaber erfasst (abhängig von Mitglied-Beitragsklasse + Abteilung, aber das ist eine administrative Kopf-Entscheidung, nicht eine automatische Formel). Keine berechenbaren Aggregate."
+    },
+    "Veranstaltungen": {
+      "placeholders_set": 9,
+      "defaults_keys": ["datum", "status"],
+      "computed_keys": [],
+      "reason": "Event-Verwaltung mit Stammdaten (Titel, Ort, Termine, Kapazität, Kostenbeitrag). Der Kostenbeitrag ist eine Pauschale pro Event, keine Multiplikation. Die beiden Daten (Ereignis + Anmeldeschluss) sind Fristen, nicht eine Dauer-Paarung — daher kein dateDiff."
+    },
+    "Anmeldungen": {
+      "placeholders_set": 6,
+      "defaults_keys": ["angemeldet_am", "anzahl_personen", "status"],
+      "computed_keys": ["gesamtkosten"],
+      "reason": "ARCHETYP 2 (Produkt): Anzahl Personen × Kostenbeitrag (via Applookup auf Veranstaltung). Die Formel ist 'field(anzahl_personen) * applookup(veranstaltung, kostenbeitrag)'. Der virtuelle Gesamtkosten-Key wird im Dialog als Berechnungs-Aggregat gezeigt."
+    },
+    "Helferschichten": {
+      "placeholders_set": 7,
+      "defaults_keys": ["beginn", "ende", "benoetigte_helfer"],
+      "computed_keys": [],
+      "reason": "Schicht-Verwaltung mit Start/End-Uhrzeit und Soll-Helfer-Anzahl. Das multipleapplookup 'helfer' ist eine reine Eingabeliste (welche Helfer sind eingeplant), keine Summen-Berechnung über deren Stundensätze — daher kein computed. Keine berechenbaren Geldbeträge oder Dauer-Ableitungen."
+    }
+  }
+}

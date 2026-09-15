@@ -1,0 +1,64 @@
+{
+  "AbteilungenDialog.tsx": {
+    "name": "Wähle eine Abteilung",
+    "jahresbeitrag_erwachsene": "z. B. 50",
+    "jahresbeitrag_kinder": "z. B. 30",
+    "abteilungsleiter": "Leiter wählen"
+  },
+  "MitgliederDialog.tsx": {
+    "mitgliedsnummer": "z. B. M-2026-0001",
+    "vorname": "z. B. Max",
+    "nachname": "z. B. Müller",
+    "geburtsdatum": "Wann geboren?",
+    "email": "z. B. max@example.de",
+    "telefon": "z. B. 0160 123456",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 95349",
+    "ort": "z. B. Kulmbach",
+    "eintrittsdatum": "Wann beigetreten?",
+    "austrittsdatum": "Wann ausgetreten?",
+    "status": "Wähle Status",
+    "beitragsklasse": "z. B. Erwachsener",
+    "sepa_mandat": "Ja, vorhanden",
+    "notizen": "Besondere Hinweise, Allergien, Behinderungen...",
+    "abteilung": "Welche Abteilung?"
+  },
+  "BeitraegeDialog.tsx": {
+    "jahr": "z. B. 2026",
+    "betrag": "z. B. 50,00",
+    "faellig_am": "Wann fällig?",
+    "status": "z. B. Offen",
+    "bezahlt_am": "Wann bezahlt?",
+    "zahlungsart": "z. B. Lastschrift",
+    "mitglied": "Für welches Mitglied?"
+  },
+  "VeranstaltungenDialog.tsx": {
+    "titel": "z. B. Hallenturnier",
+    "beschreibung": "Programm, Regeln, Besonderheiten...",
+    "datum": "Wann und um wie viel Uhr?",
+    "ort": "z. B. Hallstadt, Turnhalle",
+    "maximale_teilnehmer": "z. B. 40",
+    "anmeldeschluss": "Anmeldeschluss wählen",
+    "kostenbeitrag": "z. B. 15,00",
+    "status": "z. B. Geplant",
+    "abteilung": "Zuständige Abteilung?"
+  },
+  "AnmeldungenDialog.tsx": {
+    "angemeldet_am": "Anmeldedatum",
+    "anzahl_personen": "z. B. 2",
+    "status": "z. B. Angemeldet",
+    "bemerkung": "Spezialwünsche, Allergien, Begleitpersonen...",
+    "veranstaltung": "Welche Veranstaltung?",
+    "mitglied": "Wer meldet sich an?"
+  },
+  "HelferschichtenDialog.tsx": {
+    "bezeichnung": "z. B. Umkleidebetreuung",
+    "beginn": "Wann beginnt die Schicht?",
+    "ende": "Wann endet die Schicht?",
+    "benoetigte_helfer": "z. B. 3",
+    "bemerkung": "Besondere Aufgaben, Anforderungen...",
+    "veranstaltung": "Zu welcher Veranstaltung?",
+    "helfer": "Helfer eintragen"
+  }
+}
