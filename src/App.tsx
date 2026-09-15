@@ -10,6 +10,10 @@ import DashboardReady from '@/pages/DashboardReady';
 import PublicPagesAdmin from '@/pages/PublicPagesAdmin';
 import IntentsAdmin from '@/pages/IntentsAdmin';
 // <custom:imports>
+const IntentJahresbeitraegePage = lazy(() => import('@/pages/intents/JahresbeitraegePage'));
+import { DashboardSkeleton } from '@/components/DashboardStates';
+const IntentVeranstaltungsanmeldungPage = lazy(() => import('@/pages/intents/VeranstaltungsanmeldungPage'));
+const IntentSchichtBesetzenPage = lazy(() => import('@/pages/intents/SchichtBesetzenPage'));
 // </custom:imports>
 
 // Lazy: public pages live outside <Layout> and only load on /#/public/:slug —
@@ -77,6 +81,9 @@ export default function App() {
                 <Route path="verwaltung/ablaeufe" element={<IntentsAdmin />} />
                 <Route path="verwaltung/oeffentliche-seiten" element={<PublicPagesAdmin />} />
                 {/* <custom:routes> */}
+                <Route path="intents/jahresbeitraege" element={<Suspense fallback={<DashboardSkeleton />}><IntentJahresbeitraegePage /></Suspense>} />
+                <Route path="intents/veranstaltungsanmeldung" element={<Suspense fallback={<DashboardSkeleton />}><IntentVeranstaltungsanmeldungPage /></Suspense>} />
+                <Route path="intents/schicht-besetzen" element={<Suspense fallback={<DashboardSkeleton />}><IntentSchichtBesetzenPage /></Suspense>} />
                 {/* </custom:routes> */}
                 {/* An unknown hash (a bookmark from before a rebuild renamed the
                     flows, a mistyped link) must not be a blank page. */}
