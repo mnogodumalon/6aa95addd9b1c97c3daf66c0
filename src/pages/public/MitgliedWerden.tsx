@@ -7,8 +7,8 @@ import {
   type PublicPageConfig,
 } from '@/lib/publicClient';
 import { tx } from '@/i18n';
-import { LOOKUP_OPTIONS } from '@/types/app';
 import { useStepForm, useJourneySubmit, useRecordSearch, optionsOf, type JourneyRecord } from '@/lib/journey';
+import { Input } from '@/components/ui/input';
 import { createPublicPort } from '@/lib/journey/publicPort';
 import { IntentWizardShell, WizardStep } from '@/components/blocks/IntentWizardShell';
 import { StepNav } from '@/components/blocks/StepNav';
@@ -61,9 +61,6 @@ export default function MitgliedWerden() {
     [cfg, page],
   );
 
-  // Determine first status key at runtime
-  const firstStatusKey = LOOKUP_OPTIONS['mitglieder']?.['status']?.[0]?.key ?? 'aktiv';
-
   const f = useStepForm('mitglieder', {
     fields: [
       'vorname', 'nachname', 'geburtsdatum', 'email', 'telefon',
@@ -113,7 +110,7 @@ export default function MitgliedWerden() {
         entity: 'mitglieder',
         form: f,
         primary: true,
-        values: { status: firstStatusKey },
+        values: { status: 'passiv' },
       },
     ],
     { draftKey: 'mitglied-werden' },
@@ -174,18 +171,18 @@ export default function MitgliedWerden() {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 <Field form={f} name="vorname">
-                  <input {...f.field('vorname')} className="input" />
+                  <Input {...f.field('vorname')} />
                 </Field>
                 <Field form={f} name="nachname">
-                  <input {...f.field('nachname')} className="input" />
+                  <Input {...f.field('nachname')} />
                 </Field>
               </div>
               <Bound form={f} name="geburtsdatum" as="date" />
               <Field form={f} name="email">
-                <input {...f.field('email')} className="input" />
+                <Input {...f.field('email')} />
               </Field>
               <Field form={f} name="telefon">
-                <input {...f.field('telefon')} className="input" />
+                <Input {...f.field('telefon')} />
               </Field>
               <StepNav
                 onNext={() => f.validate(['vorname', 'nachname', 'geburtsdatum'])}
@@ -206,20 +203,20 @@ export default function MitgliedWerden() {
               <div className="grid grid-cols-3 gap-3">
                 <div className="col-span-2">
                   <Field form={f} name="strasse">
-                    <input {...f.field('strasse')} className="input" />
+                    <Input {...f.field('strasse')} />
                   </Field>
                 </div>
                 <Field form={f} name="hausnummer">
-                  <input {...f.field('hausnummer')} className="input" />
+                  <Input {...f.field('hausnummer')} />
                 </Field>
               </div>
               <div className="grid grid-cols-3 gap-3">
                 <Field form={f} name="plz">
-                  <input {...f.field('plz')} className="input" />
+                  <Input {...f.field('plz')} />
                 </Field>
                 <div className="col-span-2">
                   <Field form={f} name="ort">
-                    <input {...f.field('ort')} className="input" />
+                    <Input {...f.field('ort')} />
                   </Field>
                 </div>
               </div>
