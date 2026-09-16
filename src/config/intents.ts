@@ -20,6 +20,7 @@
 import type { ComponentType } from 'react';
 
 // <custom:intent-imports>
+import { IconUserPlus, IconCalendarCheck, IconReceiptEuro, IconUsersGroup } from '@tabler/icons-react';
 // </custom:intent-imports>
 
 export interface IntentLink {
@@ -42,6 +43,10 @@ export interface IntentLink {
 
 export const INTENTS: IntentLink[] = [
   // <custom:intents>
+  { path: '/intents/mitglied-aufnehmen', label: { de: 'Mitglied aufnehmen', en: 'Add member' }, icon: IconUserPlus, description: 'Neues Mitglied anlegen und ersten Jahresbeitrag erstellen' },
+  { path: '/intents/veranstaltung-anmelden', label: { de: 'Zur Veranstaltung anmelden', en: 'Register for event' }, icon: IconCalendarCheck, description: 'Mitglied zu einer Veranstaltung anmelden — mit Kapazitätsprüfung und Warteliste' },
+  { path: '/intents/jahresbeitraege-erzeugen', label: { de: 'Jahresbeiträge erzeugen', en: 'Generate annual fees' }, icon: IconReceiptEuro, description: 'Jahresbeiträge für alle aktiven Mitglieder einer Abteilung oder vereinsweit anlegen' },
+  { path: '/intents/helferschicht-besetzen', label: { de: 'Helferschicht besetzen', en: 'Fill helper shift' }, icon: IconUsersGroup, description: 'Helfer zu einer Helferschicht einer Veranstaltung zuordnen' },
   // </custom:intents>
 ];
 
@@ -52,7 +57,7 @@ export const INTENTS: IntentLink[] = [
  * purpose — a scaffold update resets it to false (self-healing if Phase 2
  * never ran).
  */
-export const INTENTS_PENDING = true;
+export const INTENTS_PENDING = false;
 
 /**
  * When the Phase-1 bundle was deployed (ISO, set by the service together with
