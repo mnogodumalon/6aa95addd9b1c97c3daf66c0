@@ -1,0 +1,36 @@
+{
+  "pages": {
+    "en": {
+      " u. a.": " et al.",
+      "Aktive Mitglieder": "Active Members",
+      "Alle Beiträge bezahlt.": "All contributions paid.",
+      "Alle Schichten besetzt.": "All shifts staffed.",
+      "Alle mahnen": "Remind all",
+      "Anmeldungen heute": "Registrations today",
+      "Beitrag erfassen": "Record Contribution",
+      "Beiträge offen": "Contributions open",
+      "Beiträge überfällig": "Contributions overdue",
+      "Datum geändert": "Date modified",
+      "Geburtstag heute: {0} 🎂": "Birthday today: {0} 🎂",
+      "Gemahnt": "Reminded",
+      "Helfer eintragen": "Add Helper",
+      "Helfer fehlen": "Helpers missing",
+      "Helfer fehlt": "Helper missing",
+      "Helferschicht": "Helper Shift",
+      "Helferschichten unbesetzt": "Helper shifts unstaffed",
+      "Keine gemahnten Beiträge.": "No reminded contributions.",
+      "Mahnen": "Send Reminder",
+      "Neue Veranstaltung": "New Event",
+      "Nächste Veranstaltung: {0} am {1}": "Next event: {0} on {1}",
+      "Offen": "Open",
+      "Ohne Titel": "Untitled",
+      "Schicht anlegen": "Create Shift",
+      "Schichten unbesetzt": "Shifts unstaffed",
+      "Unbekannt": "Unknown",
+      "gemahnt": "reminded",
+      "{0} aktive Mitglieder im Verein": "{0} active members in the club",
+      "Überfällig": "Overdue"
+    }
+  },
+  "v": 1
+}
