@@ -399,6 +399,9 @@ export const UI_CATALOG: Record<CoreLocale, Record<string, string>> = {
     "pj_failed": "Nicht gebaut",
     "pj_busy": "Für dieses Dashboard läuft gerade ein anderer Bau (seit {minutes} min). Bitte kurz warten und erneut versuchen.",
     "pj_error_network": "Verbindung abgebrochen. Der Bau läuft möglicherweise weiter — das Dashboard meldet sich, wenn die Seite da ist.",
+    "pj_toast_started": "Wird im Hintergrund gebaut, das dauert zwei bis vier Minuten. Du kannst weiterarbeiten — das Dashboard meldet sich, wenn es fertig ist.",
+    "pj_toast_error_hint_flow": "Unter „Abläufe verwalten“ kannst du es erneut versuchen.",
+    "pj_toast_error_hint_public": "Unter „Seiten verwalten“ kannst du es erneut versuchen.",
     "load_error_title": "Fehler beim Laden",
     "retry": "Erneut versuchen",
     "data_load_failed": "Fehler beim Laden der Daten",
@@ -964,6 +967,9 @@ export const UI_CATALOG: Record<CoreLocale, Record<string, string>> = {
     "pj_failed": "Not built",
     "pj_busy": "Another build is running for this dashboard (for {minutes} min). Please wait a moment and try again.",
     "pj_error_network": "Connection lost. The build may still be running — the dashboard tells you when the page is there.",
+    "pj_toast_started": "Building in the background, this takes two to four minutes. Keep working — the dashboard tells you when it is done.",
+    "pj_toast_error_hint_flow": "You can try again under “Manage flows”.",
+    "pj_toast_error_hint_public": "You can try again under “Manage pages”.",
     "load_error_title": "Error Loading",
     "retry": "Try Again",
     "data_load_failed": "Failed to load data",
@@ -1445,7 +1451,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "ort": "City",
           "maximale_teilnehmer": "Maximum Participants",
           "anmeldeschluss": "Registration Deadline",
-          "kostenbeitrag": "Participation Fee (€)",
+          "kostenbeitrag": "Cost Contribution (€)",
           "status": "Status",
           "abteilung": "Department (optional)"
         },
@@ -1466,7 +1472,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "angemeldet_am": "Registered On",
           "anzahl_personen": "Number of Persons",
           "status": "Status",
-          "bemerkung": "Remark",
+          "bemerkung": "Remarks",
           "veranstaltung": "Event",
           "mitglied": "Member"
         },
@@ -1483,13 +1489,13 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
         "name": "Volunteer Shifts",
         "app_id": "6aa95a99a402ee527ca028ee",
         "fields": {
-          "bezeichnung": "Name",
+          "bezeichnung": "Label",
           "beginn": "Start",
           "ende": "End",
-          "benoetigte_helfer": "Required Volunteers",
-          "bemerkung": "Remark",
+          "benoetigte_helfer": "Volunteers Needed",
+          "bemerkung": "Remarks",
           "veranstaltung": "Event",
-          "helfer": "Volunteers"
+          "helfer": "Volunteer"
         },
         "lookups": {}
       }

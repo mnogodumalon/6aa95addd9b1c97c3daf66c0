@@ -82,7 +82,7 @@ export default function HelferschichtBesetzenPage() {
   // Schritt 3: Mitglieder — nur aktive
   const mitglieder = useRecordSearch(servicePort, 'mitglieder', {
     searchFields: ['vorname', 'nachname', 'mitgliedsnummer'],
-    filter: "r.v_status == 'aktiv'",
+    filter: "r.v_status == 'aktiv'", /* i18n-exempt */
     where: r => (r.fields.status as { key: string } | null)?.key === 'aktiv',
     toItem: m => ({
       id: m.id,

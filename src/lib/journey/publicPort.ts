@@ -22,6 +22,35 @@ import {
 import { JourneyPortError, toWirePayload, type JourneyPort, type JourneyRecord } from './port';
 import { matchesSearch } from './search';
 import { ENTITIES, type EntityKey } from './rules';
+import { LOOKUP_OPTIONS } from '@/types/app';
+
+/**
+ * Lookup values in the SAME shape on both doors. The internal door hands
+ * `{ key, label }` objects out (livingAppsService hydrates every read); a
+ * grant answers with the bare key (`status: "verfuegbar"`). A page written
+ * against the dashboard — `fields.status?.key === 'verfuegbar'` — therefore
+ * matched nothing on a public page and showed an empty list without any
+ * error (live 2026-09-16: a booking form offered no apartment although the
+ * grant returned two). Hydrating here removes the difference: whatever the
+ * page compares against, it sees the object it sees everywhere else. Values
+ * that already are objects (a legacy grant, a hand-built record) pass through;
+ * a key the schema does not know keeps itself as label, like the internal door.
+ */
+export function hydrateLookups(entity: EntityKey, fields: Record<string, unknown>): Record<string, unknown> {
+  const opts = (LOOKUP_OPTIONS as Record<string, Record<string, Array<{ key: string; label: string }>> | undefined>)[entity];
+  if (!opts) return fields;
+  let out: Record<string, unknown> | null = null;
+  const objectFor = (options: Array<{ key: string; label: string }>, v: string) => options.find(o => o.key === v) ?? { key: v, label: v };
+  for (const [fieldKey, options] of Object.entries(opts)) {
+    const val = fields[fieldKey];
+    if (typeof val === 'string' && val !== '') {
+      (out ??= { ...fields })[fieldKey] = objectFor(options, val);
+    } else if (Array.isArray(val) && val.some(v => typeof v === 'string')) {
+      (out ??= { ...fields })[fieldKey] = val.map(v => (typeof v === 'string' ? objectFor(options, v) : v));
+    }
+  }
+  return out ?? fields;
+}
 
 function appIdOf(entity: EntityKey): string {
   const info = (ENTITIES as Record<string, { appId: string } | undefined>)[entity];
@@ -38,7 +67,7 @@ export function createPublicPort(cfg: PublicPagesConfig, page: PublicPageConfig)
       });
       const rows = Object.entries(map).map(([id, r]): JourneyRecord => ({
         id: r.id ?? id,
-        fields: (r.fields ?? {}) as Record<string, unknown>,
+        fields: hydrateLookups(entity, (r.fields ?? {}) as Record<string, unknown>),
         createdAt: r.created_at ?? null,
       }));
       // A grant's allowed query is field/limit/offset — no `filter`. So the
@@ -74,7 +103,7 @@ export function createPublicPort(cfg: PublicPagesConfig, page: PublicPageConfig)
         );
       }
       const r = await createPublicRecord(cfg, target, toWirePayload(entity, values, port));
-      return { id: r.id, fields: (r.fields ?? {}) as Record<string, unknown>, createdAt: r.created_at ?? null };
+      return { id: r.id, fields: hydrateLookups(entity, (r.fields ?? {}) as Record<string, unknown>), createdAt: r.created_at ?? null };
     },
     ref: (appId, recordId) => recordRef(cfg, page, appId, recordId),
   };

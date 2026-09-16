@@ -376,7 +376,7 @@ export function AnmeldungenDialog({ open, onClose, onSubmit, defaultValues, reco
         <Label htmlFor="angemeldet_am">{fieldLabel('anmeldungen', 'angemeldet_am')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <DatePicker
           id="angemeldet_am"
-          placeholder="Anmeldedatum eintragen"
+          placeholder=""
           mode="date"
           value={fields.angemeldet_am ?? null}
           onChange={v => setFields(f => ({ ...f, angemeldet_am: v ?? undefined }))}
@@ -396,7 +396,7 @@ export function AnmeldungenDialog({ open, onClose, onSubmit, defaultValues, reco
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'anzahl_personen')}
-          placeholder="z. B. 2"
+          placeholder=""
           value={fields.anzahl_personen !== undefined ? fields.anzahl_personen : (computedValues['anzahl_personen'] ?? '')}
           onChange={e => setFields(f => ({ ...f, anzahl_personen: clampNumberValue(formEnhancements, 'anzahl_personen', e.target.value) }))}
         />
@@ -472,7 +472,7 @@ export function AnmeldungenDialog({ open, onClose, onSubmit, defaultValues, reco
         <Label htmlFor="bemerkung">{fieldLabel('anmeldungen', 'bemerkung')}</Label>
         <Textarea
           id="bemerkung"
-          placeholder="Spezielle Wünsche, Allergien, Besonderheiten..."
+          placeholder=""
           value={fields.bemerkung ?? ''}
           onChange={e => setFields(f => ({ ...f, bemerkung: e.target.value }))}
           rows={3}
@@ -484,7 +484,7 @@ export function AnmeldungenDialog({ open, onClose, onSubmit, defaultValues, reco
         <Label htmlFor="veranstaltung">{fieldLabel('anmeldungen', 'veranstaltung')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Combobox
           id="veranstaltung"
-          placeholder="Für welche Veranstaltung?"
+          placeholder=""
           items={veranstaltungenListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.titel ?? r.record_id),
@@ -504,7 +504,7 @@ export function AnmeldungenDialog({ open, onClose, onSubmit, defaultValues, reco
         <Label htmlFor="mitglied">{fieldLabel('anmeldungen', 'mitglied')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Combobox
           id="mitglied"
-          placeholder="Welches Mitglied meldet sich an?"
+          placeholder=""
           items={mitgliederListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.mitgliedsnummer ?? r.record_id),

@@ -43,10 +43,10 @@ export interface IntentLink {
 
 export const INTENTS: IntentLink[] = [
   // <custom:intents>
-  { path: '/intents/mitglied-aufnehmen', label: { de: 'Mitglied aufnehmen', en: 'Add member' }, icon: IconUserPlus, description: 'Neues Mitglied anlegen und ersten Jahresbeitrag erstellen' },
-  { path: '/intents/veranstaltung-anmelden', label: { de: 'Zur Veranstaltung anmelden', en: 'Register for event' }, icon: IconCalendarCheck, description: 'Mitglied zu einer Veranstaltung anmelden — mit Kapazitätsprüfung und Warteliste' },
-  { path: '/intents/jahresbeitraege-erzeugen', label: { de: 'Jahresbeiträge erzeugen', en: 'Generate annual fees' }, icon: IconReceiptEuro, description: 'Jahresbeiträge für alle aktiven Mitglieder einer Abteilung oder vereinsweit anlegen' },
-  { path: '/intents/helferschicht-besetzen', label: { de: 'Helferschicht besetzen', en: 'Fill helper shift' }, icon: IconUsersGroup, description: 'Helfer zu einer Helferschicht einer Veranstaltung zuordnen' },
+  { path: '/intents/mitglied-aufnehmen', label: { de: 'Mitglied aufnehmen', en: 'Add member' }, icon: IconUserPlus, description: { de: 'Neues Mitglied anlegen und ersten Jahresbeitrag erstellen', en: 'Create New Member and Generate First Annual Fee' } },
+  { path: '/intents/veranstaltung-anmelden', label: { de: 'Zur Veranstaltung anmelden', en: 'Register for event' }, icon: IconCalendarCheck, description: { de: 'Mitglied zu einer Veranstaltung anmelden — mit Kapazitätsprüfung und Warteliste', en: 'Register member for an event — with capacity check and waitlist' } },
+  { path: '/intents/jahresbeitraege-erzeugen', label: { de: 'Jahresbeiträge erzeugen', en: 'Generate annual fees' }, icon: IconReceiptEuro, description: { de: 'Jahresbeiträge für alle aktiven Mitglieder einer Abteilung oder vereinsweit anlegen', en: 'Create annual fees for all active members of a department or club-wide' } },
+  { path: '/intents/helferschicht-besetzen', label: { de: 'Helferschicht besetzen', en: 'Fill helper shift' }, icon: IconUsersGroup, description: { de: 'Helfer zu einer Helferschicht einer Veranstaltung zuordnen', en: 'Assign helper to a helper shift of an event' } },
   // </custom:intents>
 ];
 
@@ -66,5 +66,5 @@ export const INTENTS_PENDING = false;
  * pulsing "werden erstellt …" in every deployed Phase-1 bundle forever — no
  * code path redeploys Phase 1 without the flag (live 03.09.2026).
  */
-export const INTENTS_PENDING_SINCE: string | null = '2026-09-16T08:45:49+00:00';
+export const INTENTS_PENDING_SINCE: string | null = null;
 export const PENDING_MAX_MINUTES = 30;
