@@ -348,7 +348,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="titel">{fieldLabel('veranstaltungen', 'titel')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="titel"
-          placeholder="z. B. Sommerfest"
+          placeholder=""
           value={fields.titel ?? ''}
           onChange={e => setFields(f => ({ ...f, titel: e.target.value }))}
           required
@@ -363,7 +363,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="beschreibung">{fieldLabel('veranstaltungen', 'beschreibung')}</Label>
         <Textarea
           id="beschreibung"
-          placeholder="Programm, Besonderheiten..."
+          placeholder=""
           value={fields.beschreibung ?? ''}
           onChange={e => setFields(f => ({ ...f, beschreibung: e.target.value }))}
           rows={3}
@@ -375,7 +375,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="datum">{fieldLabel('veranstaltungen', 'datum')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <DatePicker
           id="datum"
-          placeholder="Wann und um wie viel Uhr?"
+          placeholder=""
           mode="datetime"
           value={fields.datum ?? null}
           onChange={v => setFields(f => ({ ...f, datum: v ?? undefined }))}
@@ -391,7 +391,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="ort">{fieldLabel('veranstaltungen', 'ort')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="ort"
-          placeholder="z. B. Sportplatz Hallstadt"
+          placeholder=""
           value={fields.ort ?? ''}
           onChange={e => setFields(f => ({ ...f, ort: e.target.value }))}
           required
@@ -410,7 +410,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'maximale_teilnehmer')}
-          placeholder="z. B. 50"
+          placeholder=""
           value={fields.maximale_teilnehmer !== undefined ? fields.maximale_teilnehmer : (computedValues['maximale_teilnehmer'] ?? '')}
           onChange={e => setFields(f => ({ ...f, maximale_teilnehmer: clampNumberValue(formEnhancements, 'maximale_teilnehmer', e.target.value) }))}
         />
@@ -421,7 +421,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="anmeldeschluss">{fieldLabel('veranstaltungen', 'anmeldeschluss')}</Label>
         <DatePicker
           id="anmeldeschluss"
-          placeholder="Bis wann anmelden?"
+          placeholder=""
           mode="date"
           value={fields.anmeldeschluss ?? null}
           onChange={v => setFields(f => ({ ...f, anmeldeschluss: v ?? undefined }))}
@@ -437,7 +437,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'kostenbeitrag')}
-          placeholder="z. B. 15,00"
+          placeholder=""
           value={fields.kostenbeitrag !== undefined ? fields.kostenbeitrag : (computedValues['kostenbeitrag'] ?? '')}
           onChange={e => setFields(f => ({ ...f, kostenbeitrag: clampNumberValue(formEnhancements, 'kostenbeitrag', e.target.value) }))}
         />
@@ -523,7 +523,7 @@ export function VeranstaltungenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="abteilung">{fieldLabel('veranstaltungen', 'abteilung')}</Label>
         <Combobox
           id="abteilung"
-          placeholder="Welche Abteilung (optional)?"
+          placeholder=""
           items={abteilungenListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.name ?? r.record_id),

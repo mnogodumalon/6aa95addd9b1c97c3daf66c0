@@ -350,7 +350,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="mitgliedsnummer">{fieldLabel('mitglieder', 'mitgliedsnummer')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="mitgliedsnummer"
-          placeholder="z. B. TSV-2026-001"
+          placeholder=""
           value={fields.mitgliedsnummer ?? ''}
           onChange={e => setFields(f => ({ ...f, mitgliedsnummer: e.target.value }))}
           required
@@ -365,7 +365,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="vorname">{fieldLabel('mitglieder', 'vorname')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="vorname"
-          placeholder="z. B. Max"
+          placeholder=""
           value={fields.vorname ?? ''}
           onChange={e => setFields(f => ({ ...f, vorname: e.target.value }))}
           required
@@ -380,7 +380,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="nachname">{fieldLabel('mitglieder', 'nachname')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="nachname"
-          placeholder="z. B. Müller"
+          placeholder=""
           value={fields.nachname ?? ''}
           onChange={e => setFields(f => ({ ...f, nachname: e.target.value }))}
           required
@@ -395,7 +395,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="geburtsdatum">{fieldLabel('mitglieder', 'geburtsdatum')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <DatePicker
           id="geburtsdatum"
-          placeholder="Wann wurde das Mitglied geboren?"
+          placeholder=""
           mode="date"
           value={fields.geburtsdatum ?? null}
           onChange={v => setFields(f => ({ ...f, geburtsdatum: v ?? undefined }))}
@@ -413,7 +413,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
           id="email"
           type="email"
           inputMode="email"
-          placeholder="z. B. max@example.com"
+          placeholder=""
           value={fields.email ?? ''}
           onChange={e => setFields(f => ({ ...f, email: e.target.value }))}
         />
@@ -426,7 +426,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
           id="telefon"
           type="tel"
           inputMode="tel"
-          placeholder="z. B. +49 123 456789"
+          placeholder=""
           value={fields.telefon ?? ''}
           onChange={e => setFields(f => ({ ...f, telefon: e.target.value }))}
         />
@@ -437,7 +437,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="strasse">{fieldLabel('mitglieder', 'strasse')}</Label>
         <Input
           id="strasse"
-          placeholder="z. B. Hauptstr."
+          placeholder=""
           value={fields.strasse ?? ''}
           onChange={e => setFields(f => ({ ...f, strasse: e.target.value }))}
         />
@@ -448,7 +448,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="hausnummer">{fieldLabel('mitglieder', 'hausnummer')}</Label>
         <Input
           id="hausnummer"
-          placeholder="z. B. 42"
+          placeholder=""
           value={fields.hausnummer ?? ''}
           onChange={e => setFields(f => ({ ...f, hausnummer: e.target.value }))}
         />
@@ -459,7 +459,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="plz">{fieldLabel('mitglieder', 'plz')}</Label>
         <Input
           id="plz"
-          placeholder="z. B. 96103"
+          placeholder=""
           value={fields.plz ?? ''}
           onChange={e => setFields(f => ({ ...f, plz: e.target.value }))}
         />
@@ -470,7 +470,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="ort">{fieldLabel('mitglieder', 'ort')}</Label>
         <Input
           id="ort"
-          placeholder="z. B. Hallstadt"
+          placeholder=""
           value={fields.ort ?? ''}
           onChange={e => setFields(f => ({ ...f, ort: e.target.value }))}
         />
@@ -481,7 +481,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="eintrittsdatum">{fieldLabel('mitglieder', 'eintrittsdatum')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <DatePicker
           id="eintrittsdatum"
-          placeholder="Wann tritt es bei?"
+          placeholder=""
           mode="date"
           value={fields.eintrittsdatum ?? null}
           onChange={v => setFields(f => ({ ...f, eintrittsdatum: v ?? undefined }))}
@@ -497,7 +497,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="austrittsdatum">{fieldLabel('mitglieder', 'austrittsdatum')}</Label>
         <DatePicker
           id="austrittsdatum"
-          placeholder="Wann tritt es aus?"
+          placeholder=""
           mode="date"
           value={fields.austrittsdatum ?? null}
           onChange={v => setFields(f => ({ ...f, austrittsdatum: v ?? undefined }))}
@@ -633,7 +633,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="notizen">{fieldLabel('mitglieder', 'notizen')}</Label>
         <Textarea
           id="notizen"
-          placeholder="Besonderheiten, Kontaktinfos..."
+          placeholder=""
           value={fields.notizen ?? ''}
           onChange={e => setFields(f => ({ ...f, notizen: e.target.value }))}
           rows={3}
@@ -645,7 +645,7 @@ export function MitgliederDialog({ open, onClose, onSubmit, defaultValues, recor
         <Label htmlFor="abteilung">{fieldLabel('mitglieder', 'abteilung')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Combobox
           id="abteilung"
-          placeholder="Welche Abteilung?"
+          placeholder=""
           items={abteilungenListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.name ?? r.record_id),

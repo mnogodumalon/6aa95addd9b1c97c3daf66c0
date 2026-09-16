@@ -426,7 +426,7 @@ export function AbteilungenDialog({ open, onClose, onSubmit, defaultValues, reco
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'jahresbeitrag_erwachsene')}
-          placeholder="z. B. 120"
+          placeholder=""
           value={fields.jahresbeitrag_erwachsene !== undefined ? fields.jahresbeitrag_erwachsene : (computedValues['jahresbeitrag_erwachsene'] ?? '')}
           onChange={e => setFields(f => ({ ...f, jahresbeitrag_erwachsene: clampNumberValue(formEnhancements, 'jahresbeitrag_erwachsene', e.target.value) }))}
         />
@@ -444,7 +444,7 @@ export function AbteilungenDialog({ open, onClose, onSubmit, defaultValues, reco
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'jahresbeitrag_kinder')}
-          placeholder="z. B. 60"
+          placeholder=""
           value={fields.jahresbeitrag_kinder !== undefined ? fields.jahresbeitrag_kinder : (computedValues['jahresbeitrag_kinder'] ?? '')}
           onChange={e => setFields(f => ({ ...f, jahresbeitrag_kinder: clampNumberValue(formEnhancements, 'jahresbeitrag_kinder', e.target.value) }))}
         />
@@ -458,7 +458,7 @@ export function AbteilungenDialog({ open, onClose, onSubmit, defaultValues, reco
         <Label htmlFor="abteilungsleiter">{fieldLabel('abteilungen', 'abteilungsleiter')}</Label>
         <Combobox
           id="abteilungsleiter"
-          placeholder="Abteilungsleiter wählen"
+          placeholder=""
           items={mitgliederListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.mitgliedsnummer ?? r.record_id),

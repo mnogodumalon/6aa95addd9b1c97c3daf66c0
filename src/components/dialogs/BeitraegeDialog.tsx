@@ -354,7 +354,7 @@ export function BeitraegeDialog({ open, onClose, onSubmit, defaultValues, record
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'jahr')}
-          placeholder="z. B. 2026"
+          placeholder=""
           value={fields.jahr !== undefined ? fields.jahr : (computedValues['jahr'] ?? '')}
           onChange={e => setFields(f => ({ ...f, jahr: clampNumberValue(formEnhancements, 'jahr', e.target.value) }))}
         />
@@ -372,7 +372,7 @@ export function BeitraegeDialog({ open, onClose, onSubmit, defaultValues, record
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'betrag')}
-          placeholder="z. B. 120,00"
+          placeholder=""
           value={fields.betrag !== undefined ? fields.betrag : (computedValues['betrag'] ?? '')}
           onChange={e => setFields(f => ({ ...f, betrag: clampNumberValue(formEnhancements, 'betrag', e.target.value) }))}
         />
@@ -386,7 +386,7 @@ export function BeitraegeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="faellig_am">{fieldLabel('beitraege', 'faellig_am')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <DatePicker
           id="faellig_am"
-          placeholder="Wann ist es fällig?"
+          placeholder=""
           mode="date"
           value={fields.faellig_am ?? null}
           onChange={v => setFields(f => ({ ...f, faellig_am: v ?? undefined }))}
@@ -464,7 +464,7 @@ export function BeitraegeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="bezahlt_am">{fieldLabel('beitraege', 'bezahlt_am')}</Label>
         <DatePicker
           id="bezahlt_am"
-          placeholder="Wann wurde bezahlt?"
+          placeholder=""
           mode="date"
           value={fields.bezahlt_am ?? null}
           onChange={v => setFields(f => ({ ...f, bezahlt_am: v ?? undefined }))}
@@ -522,7 +522,7 @@ export function BeitraegeDialog({ open, onClose, onSubmit, defaultValues, record
         <Label htmlFor="mitglied">{fieldLabel('beitraege', 'mitglied')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Combobox
           id="mitglied"
-          placeholder="Welches Mitglied?"
+          placeholder=""
           items={mitgliederListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.mitgliedsnummer ?? r.record_id),

@@ -368,7 +368,7 @@ export function HelferschichtenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="bezeichnung">{fieldLabel('helferschichten', 'bezeichnung')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Input
           id="bezeichnung"
-          placeholder="z. B. Getränkestand"
+          placeholder=""
           value={fields.bezeichnung ?? ''}
           onChange={e => setFields(f => ({ ...f, bezeichnung: e.target.value }))}
           required
@@ -383,7 +383,7 @@ export function HelferschichtenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="beginn">{fieldLabel('helferschichten', 'beginn')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <DatePicker
           id="beginn"
-          placeholder="Wann startet die Schicht?"
+          placeholder=""
           mode="datetime"
           value={fields.beginn ?? null}
           onChange={v => setFields(f => ({ ...f, beginn: v ?? undefined }))}
@@ -399,7 +399,7 @@ export function HelferschichtenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="ende">{fieldLabel('helferschichten', 'ende')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <DatePicker
           id="ende"
-          placeholder="Wann endet die Schicht?"
+          placeholder=""
           mode="datetime"
           value={fields.ende ?? null}
           onChange={v => setFields(f => ({ ...f, ende: v ?? undefined }))}
@@ -419,7 +419,7 @@ export function HelferschichtenDialog({ open, onClose, onSubmit, defaultValues, 
           inputMode="decimal"
           step="any"
           {...numberInputProps(formEnhancements, 'benoetigte_helfer')}
-          placeholder="z. B. 3"
+          placeholder=""
           value={fields.benoetigte_helfer !== undefined ? fields.benoetigte_helfer : (computedValues['benoetigte_helfer'] ?? '')}
           onChange={e => setFields(f => ({ ...f, benoetigte_helfer: clampNumberValue(formEnhancements, 'benoetigte_helfer', e.target.value) }))}
         />
@@ -433,7 +433,7 @@ export function HelferschichtenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="bemerkung">{fieldLabel('helferschichten', 'bemerkung')}</Label>
         <Textarea
           id="bemerkung"
-          placeholder="Spezielle Anforderungen..."
+          placeholder=""
           value={fields.bemerkung ?? ''}
           onChange={e => setFields(f => ({ ...f, bemerkung: e.target.value }))}
           rows={3}
@@ -445,7 +445,7 @@ export function HelferschichtenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="veranstaltung">{fieldLabel('helferschichten', 'veranstaltung')} <span className="text-destructive" aria-hidden="true">*</span></Label>
         <Combobox
           id="veranstaltung"
-          placeholder="Zu welcher Veranstaltung?"
+          placeholder=""
           items={veranstaltungenListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.titel ?? r.record_id),
@@ -465,7 +465,7 @@ export function HelferschichtenDialog({ open, onClose, onSubmit, defaultValues, 
         <Label htmlFor="helfer">{fieldLabel('helferschichten', 'helfer')}</Label>
         <MultiCombobox
           id="helfer"
-          placeholder="Welche Helfer zuteilen?"
+          placeholder=""
           items={mitgliederListAll.map(r => ({
             id: r.record_id,
             label: String(r.fields.mitgliedsnummer ?? r.record_id),

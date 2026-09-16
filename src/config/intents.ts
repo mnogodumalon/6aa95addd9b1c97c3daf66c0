@@ -43,9 +43,9 @@ export interface IntentLink {
 
 export const INTENTS: IntentLink[] = [
   // <custom:intents>
-  { path: '/intents/veranstaltung-anmelden', label: { de: 'Anmeldung', en: 'Sign up' }, icon: IconUserPlus, description: 'Mitglied zu einer Veranstaltung anmelden, mit automatischer Warteliste bei voller Kapazität' },
-  { path: '/intents/jahresbeitraege-erzeugen', label: { de: 'Jahresbeiträge', en: 'Annual fees' }, icon: IconCoinEuro, description: 'Jahresbeiträge für alle aktiven Mitglieder eines Jahres erzeugen' },
-  { path: '/intents/helferschicht-eintragen', label: { de: 'Helferschicht', en: 'Helper shift' }, icon: IconHandStop, description: 'Neue Helferschicht für eine Veranstaltung anlegen und Helfer zuweisen' },
+  { path: '/intents/veranstaltung-anmelden', label: { de: 'Anmeldung', en: 'Sign up' }, icon: IconUserPlus, description: { de: 'Mitglied zu einer Veranstaltung anmelden, mit automatischer Warteliste bei voller Kapazität', en: 'Register a member for an event, with automatic waitlist when at full capacity' } },
+  { path: '/intents/jahresbeitraege-erzeugen', label: { de: 'Jahresbeiträge', en: 'Annual fees' }, icon: IconCoinEuro, description: { de: 'Jahresbeiträge für alle aktiven Mitglieder eines Jahres erzeugen', en: 'Generate annual fees for all active members of a year' } },
+  { path: '/intents/helferschicht-eintragen', label: { de: 'Helferschicht', en: 'Helper shift' }, icon: IconHandStop, description: { de: 'Neue Helferschicht für eine Veranstaltung anlegen und Helfer zuweisen', en: 'Create a new helper shift for an event and assign helpers' } },
   // </custom:intents>
 ];
 
@@ -65,5 +65,5 @@ export const INTENTS_PENDING = false;
  * pulsing "werden erstellt …" in every deployed Phase-1 bundle forever — no
  * code path redeploys Phase 1 without the flag (live 03.09.2026).
  */
-export const INTENTS_PENDING_SINCE: string | null = '2026-09-16T12:54:28+00:00';
+export const INTENTS_PENDING_SINCE: string | null = null;
 export const PENDING_MAX_MINUTES = 30;

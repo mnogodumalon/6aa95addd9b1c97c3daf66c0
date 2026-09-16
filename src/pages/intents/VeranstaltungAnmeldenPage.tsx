@@ -40,7 +40,7 @@ export default function VeranstaltungAnmeldenPage() {
 
   // Schritt 1: Veranstaltungen — nur offen_anmeldung, nicht abgesagt, Anmeldeschluss nicht überschritten
   const veranstaltungen = useRecordSearch(servicePort, 'veranstaltungen', {
-    filter: "r.v_status == 'offen_anmeldung'",
+    filter: "r.v_status == 'offen_anmeldung'", /* i18n-exempt */
     where: r => {
       const status = fieldLookup(r, 'status')?.key;
       if (status !== 'offen_anmeldung') return false;
@@ -64,7 +64,7 @@ export default function VeranstaltungAnmeldenPage() {
 
   // Schritt 2: Mitglieder — nur aktive
   const mitglieder = useRecordSearch(servicePort, 'mitglieder', {
-    filter: "r.v_status == 'aktiv'",
+    filter: "r.v_status == 'aktiv'", /* i18n-exempt */
     where: r => fieldLookup(r, 'status')?.key === 'aktiv',
     searchFields: ['vorname', 'nachname', 'mitgliedsnummer'],
     toItem: m => ({
