@@ -1,0 +1,37 @@
+{
+  "pages": {
+    "en": {
+      " — 1 überfälliger Beitrag seit {0}.": " — 1 overdue contribution since {0}.",
+      " — {0} überfällige Beiträge.": " — {0} overdue contributions.",
+      "Aktive Mitglieder": "Active Members",
+      "Alle Beiträge sind aktuell — alles im Grünen!": "All contributions are current — all in the green!",
+      "Alle Beiträge sind aktuell — keine offenen Posten.": "All contributions are current — no open items.",
+      "Alle Helferschichten sind vollständig besetzt.": "All volunteer shifts are fully staffed.",
+      "Als bezahlt markieren": "Mark as paid",
+      "Als durchgeführt markieren": "Mark as completed",
+      "Bearbeiten": "Edit",
+      "Beitrag anlegen": "Create Contribution",
+      "Bezahlt": "Paid",
+      "Für Anmeldung öffnen": "Open for registration",
+      "Mahnung markieren": "Mark reminder sent",
+      "Nächste Veranstaltung: {0} am {1}.": "Next event: {0} on {1}.",
+      "Offene Beiträge": "Open Contributions",
+      "Ohne Titel": "Untitled",
+      "Schicht anlegen": "Create Shift",
+      "Unbekannte Schicht": "Unknown Shift",
+      "Unbekanntes Mitglied": "Unknown Member",
+      "Unbesetzte Schichten": "Unfilled Shifts",
+      "Veranstaltung": "Event",
+      "Veranstaltungen diese Woche": "Events This Week",
+      "fällig": "due",
+      "{0} Helfer fehlen": "{0} volunteers missing",
+      "{0} haben überfällige Beiträge.": "{0} have overdue contributions.",
+      "{0} hat einen überfälligen Beitrag.": "{0} has an overdue contribution.",
+      "{0} — Status aktualisiert": "{0} — status updated",
+      "{0} — als bezahlt markiert": "{0} — marked as paid",
+      "{0} — als gemahnt markiert": "{0} — marked as reminded",
+      "Überfällige Beiträge": "Overdue Contributions"
+    }
+  },
+  "v": 1
+}

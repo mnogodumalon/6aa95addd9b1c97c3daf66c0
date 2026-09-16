@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Abteilungen": {
+      "placeholders_set": 3,
+      "defaults_keys": ["jahresbeitrag_erwachsene", "jahresbeitrag_kinder"],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Abteilungspreise). Beitragsfelder sind Vorbelegungen, keine Berechnungen. Applookup auf Mitglieder hat keine numerischen Ziele."
+    },
+    "Mitglieder": {
+      "placeholders_set": 13,
+      "defaults_keys": ["eintrittsdatum", "status", "beitragsklasse", "sepa_mandat"],
+      "computed_keys": [],
+      "reason": "Identifikation + Adresse + Datumsfelder. Keine berechenbaren Größen — Mitgliedschaften sind Stammdaten. Aplookup auf Abteilungen ist reine Referenz."
+    },
+    "Beiträge": {
+      "placeholders_set": 5,
+      "defaults_keys": ["jahr", "betrag", "faellig_am", "status"],
+      "computed_keys": [],
+      "reason": "Manuelle Erfassung von Jahresbeiträgen. Betrag wird manuell eingetragen oder aus Geschäftslogik übernommen, nicht berechenbar im Dialog."
+    },
+    "Veranstaltungen": {
+      "placeholders_set": 7,
+      "defaults_keys": ["datum", "anmeldeschluss", "maximale_teilnehmer", "kostenbeitrag", "status"],
+      "computed_keys": [],
+      "reason": "Event-Stammdaten. Teilnehmerzahl und Kosten sind Vorgaben, nicht berechenbar — sie werden in Anmeldungen als Multiplikator genutzt."
+    },
+    "Anmeldungen": {
+      "placeholders_set": 5,
+      "defaults_keys": ["angemeldet_am", "anzahl_personen", "status"],
+      "computed_keys": ["_anmeldung_kostengesamt"],
+      "reason": "Archtyp 2 (PRODUKT): Kostenbeitrag × Anzahl Personen. Virtueller Eintrag zeigt Gesamtkosten in der Übersicht unter den Eingaben."
+    },
+    "Helferschichten": {
+      "placeholders_set": 7,
+      "defaults_keys": ["beginn", "ende", "benoetigte_helfer"],
+      "computed_keys": ["_schicht_dauer_stunden"],
+      "reason": "Zeitgebundene Tätigkeit (zwei datetimeminute-Felder als Paar). Dauer-Berechnung in Stunden (Archtyp: Datums-Differenz). Virtueller Key zeigt Schichtdauer in der Übersicht."
+    }
+  }
+}

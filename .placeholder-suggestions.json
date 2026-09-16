@@ -1,0 +1,54 @@
+{
+  "AbteilungenDialog.tsx": {
+    "jahresbeitrag_erwachsene": "z. B. 120,00",
+    "jahresbeitrag_kinder": "z. B. 60,00",
+    "abteilungsleiter": "Abteilungsleiter wählen"
+  },
+  "MitgliederDialog.tsx": {
+    "mitgliedsnummer": "z. B. MG-2026-001",
+    "vorname": "z. B. Hans",
+    "nachname": "z. B. Müller",
+    "geburtsdatum": "Wann wurde die Person geboren?",
+    "email": "z. B. hans@example.de",
+    "telefon": "z. B. 0163 1234567",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 96129",
+    "ort": "z. B. Hallstadt",
+    "eintrittsdatum": "Wann ist die Person beigetreten?",
+    "austrittsdatum": "Wann ist die Person ausgetreten?",
+    "notizen": "Besonderheiten, Kontaktinfos..."
+  },
+  "BeitraegeDialog.tsx": {
+    "jahr": "z. B. 2026",
+    "betrag": "z. B. 120,00",
+    "faellig_am": "Fälligkeitsdatum setzen",
+    "bezahlt_am": "Zahlungsdatum eintragen",
+    "mitglied": "Welches Mitglied?"
+  },
+  "VeranstaltungenDialog.tsx": {
+    "titel": "z. B. Sommerturnier",
+    "beschreibung": "Programmablauf, Regeln, Besonderheiten...",
+    "datum": "Wann startet die Veranstaltung?",
+    "ort": "z. B. Turnhalle Hallstadt",
+    "maximale_teilnehmer": "z. B. 30",
+    "anmeldeschluss": "Anmeldungen bis wann?",
+    "kostenbeitrag": "z. B. 15,50"
+  },
+  "AnmeldungenDialog.tsx": {
+    "angemeldet_am": "Anmeldedatum eintragen",
+    "anzahl_personen": "z. B. 2",
+    "bemerkung": "Spezielle Wünsche, Allergien, Besonderheiten...",
+    "veranstaltung": "Für welche Veranstaltung?",
+    "mitglied": "Welches Mitglied meldet sich an?"
+  },
+  "HelferschichtenDialog.tsx": {
+    "bezeichnung": "z. B. Getränkestand, Auf-/Abbau",
+    "beginn": "Wann startet die Schicht?",
+    "ende": "Wann endet die Schicht?",
+    "benoetigte_helfer": "z. B. 3",
+    "bemerkung": "Spezielle Anforderungen, Ausrüstung...",
+    "veranstaltung": "Für welche Veranstaltung?",
+    "helfer": "Helfer zuweisen"
+  }
+}
