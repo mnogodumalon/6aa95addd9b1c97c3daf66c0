@@ -1474,7 +1474,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "angemeldet_am": "Registered On",
           "anzahl_personen": "Number of Persons",
           "status": "Status",
-          "bemerkung": "Remarks",
+          "bemerkung": "Remark",
           "veranstaltung": "Event",
           "mitglied": "Member"
         },
@@ -1494,10 +1494,10 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "bezeichnung": "Label",
           "beginn": "Start",
           "ende": "End",
-          "benoetigte_helfer": "Volunteers Required",
-          "bemerkung": "Remarks",
+          "benoetigte_helfer": "Required Volunteers",
+          "bemerkung": "Remark",
           "veranstaltung": "Event",
-          "helfer": "Volunteers"
+          "helfer": "Volunteer"
         },
         "lookups": {}
       }
