@@ -9,6 +9,8 @@ import {
 import { tx } from '@/i18n';
 import { useStepForm, useJourneySubmit, useRecordSearch, optionsOf, type JourneyRecord } from '@/lib/journey';
 import { Input } from '@/components/ui/input';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Label } from '@/components/ui/label';
 import { createPublicPort } from '@/lib/journey/publicPort';
 import { IntentWizardShell, WizardStep } from '@/components/blocks/IntentWizardShell';
 import { StepNav } from '@/components/blocks/StepNav';
@@ -29,12 +31,12 @@ interface AbteilungItem {
 
 export default function MitgliedWerden() {
   const STEPS = [
-  { label: tx('Persönliche Daten'), key: 'person' },
-  { label: tx('Adresse'), key: 'adresse' },
-  { label: tx('Mitgliedschaft'), key: 'mitgliedschaft' },
-  { label: tx('SEPA-Mandat'), key: 'sepa' },
-  { label: tx('Zusammenfassung'), key: 'zusammenfassung' },
-];
+    { label: tx('Persönliche Daten'), key: 'person' },
+    { label: tx('Adresse'), key: 'adresse' },
+    { label: tx('Mitgliedschaft'), key: 'mitgliedschaft' },
+    { label: tx('SEPA-Mandat'), key: 'sepa' },
+    { label: tx('Zusammenfassung'), key: 'zusammenfassung' },
+  ];
 
   const [cfg, setCfg] = useState<PublicPagesConfig | null>(null);
   const [page, setPage] = useState<PublicPageConfig | null>(null);
@@ -95,10 +97,20 @@ export default function MitgliedWerden() {
     'abteilungen',
     {
       searchFields: [],
-      toItem: (r): AbteilungItem => ({
-        id: r.id,
-        title: (r.fields.name as string) ?? r.id,
-      }),
+      toItem: (r): AbteilungItem => {
+        const name = (r.fields.name as { label: string } | null)?.label ?? r.id;
+        const erwachsene = r.fields.jahresbeitrag_erwachsene as number | null;
+        const kinder = r.fields.jahresbeitrag_kinder as number | null;
+        const parts = [
+          erwachsene != null ? `${tx('Erwachsene')}: ${erwachsene} €` : null,
+          kinder != null ? `${tx('Kinder')}: ${kinder} €` : null,
+        ].filter(Boolean) as string[];
+        return {
+          id: r.id,
+          title: name,
+          subtitle: parts.length > 0 ? parts.join(' · ') : undefined,
+        };
+      },
     },
   );
 
@@ -142,6 +154,8 @@ export default function MitgliedWerden() {
     ? (selectedAbteilung.fields.jahresbeitrag_kinder as number | null)
     : null;
 
+  const sepaCheckboxProps = f.checkbox('sepa_mandat');
+
   const restart = () => {
     f.reset();
     submit.reset();
@@ -163,184 +177,174 @@ export default function MitgliedWerden() {
         draftKey="mitglied-werden"
       >
         {/* Schritt 1: Persönliche Daten */}
-        {step === 1 && !submit.done && (
-          <WizardStep
-            label={tx('Persönliche Daten')}
-            description={tx('Bitte geben Sie Ihre persönlichen Daten ein.')}
-          >
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-3">
-                <Field form={f} name="vorname">
-                  <Input {...f.field('vorname')} />
-                </Field>
-                <Field form={f} name="nachname">
-                  <Input {...f.field('nachname')} />
-                </Field>
-              </div>
-              <Bound form={f} name="geburtsdatum" as="date" />
-              <Field form={f} name="email">
-                <Input {...f.field('email')} />
+        <WizardStep
+          label={tx('Persönliche Daten')}
+          description={tx('Bitte geben Sie Ihre persönlichen Daten ein.')}
+        >
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-3">
+              <Field form={f} name="vorname">
+                <Input {...f.field('vorname')} />
               </Field>
-              <Field form={f} name="telefon">
-                <Input {...f.field('telefon')} />
+              <Field form={f} name="nachname">
+                <Input {...f.field('nachname')} />
               </Field>
-              <StepNav
-                onNext={() => f.validate(['vorname', 'nachname', 'geburtsdatum'])}
-                nextStepLabel={tx('Adresse')}
-                hideBack
-              />
             </div>
-          </WizardStep>
-        )}
+            <Bound form={f} name="geburtsdatum" as="date" />
+            <Field form={f} name="email">
+              <Input {...f.field('email')} />
+            </Field>
+            <Field form={f} name="telefon">
+              <Input {...f.field('telefon')} />
+            </Field>
+            <StepNav
+              onNext={() => f.validate(['vorname', 'nachname', 'geburtsdatum'])}
+              nextStepLabel={tx('Adresse')}
+              hideBack
+            />
+          </div>
+        </WizardStep>
 
         {/* Schritt 2: Adresse */}
-        {step === 2 && !submit.done && (
-          <WizardStep
-            label={tx('Adresse')}
-            description={tx('Ihre Wohnanschrift (optional, aber empfohlen).')}
-          >
-            <div className="space-y-4">
-              <div className="grid grid-cols-3 gap-3">
-                <div className="col-span-2">
-                  <Field form={f} name="strasse">
-                    <Input {...f.field('strasse')} />
-                  </Field>
-                </div>
-                <Field form={f} name="hausnummer">
-                  <Input {...f.field('hausnummer')} />
+        <WizardStep
+          label={tx('Adresse')}
+          description={tx('Ihre Wohnanschrift (optional, aber empfohlen).')}
+        >
+          <div className="space-y-4">
+            <div className="grid grid-cols-3 gap-3">
+              <div className="col-span-2">
+                <Field form={f} name="strasse">
+                  <Input {...f.field('strasse')} />
                 </Field>
               </div>
-              <div className="grid grid-cols-3 gap-3">
-                <Field form={f} name="plz">
-                  <Input {...f.field('plz')} />
-                </Field>
-                <div className="col-span-2">
-                  <Field form={f} name="ort">
-                    <Input {...f.field('ort')} />
-                  </Field>
-                </div>
-              </div>
-              <StepNav
-                onBack={() => setStep(1)}
-                onNext={() => true}
-                nextStepLabel={tx('Mitgliedschaft')}
-              />
+              <Field form={f} name="hausnummer">
+                <Input {...f.field('hausnummer')} />
+              </Field>
             </div>
-          </WizardStep>
-        )}
+            <div className="grid grid-cols-3 gap-3">
+              <Field form={f} name="plz">
+                <Input {...f.field('plz')} />
+              </Field>
+              <div className="col-span-2">
+                <Field form={f} name="ort">
+                  <Input {...f.field('ort')} />
+                </Field>
+              </div>
+            </div>
+            <StepNav
+              onBack={() => setStep(1)}
+              onNext={() => true}
+              nextStepLabel={tx('Mitgliedschaft')}
+            />
+          </div>
+        </WizardStep>
 
         {/* Schritt 3: Mitgliedschaft */}
-        {step === 3 && !submit.done && (
-          <WizardStep
-            label={tx('Mitgliedschaft')}
-            description={tx('Wählen Sie Ihre Abteilung und Beitragsklasse.')}
-          >
-            <div className="space-y-6">
-              <Field form={f} name="abteilung">
-                <EntitySelectStep
-                  {...abteilungSearch.select}
-                  id={f.record('abteilung').id}
-                  invalid={f.record('abteilung').invalid}
-                  selectedId={abteilungId}
-                  onSelect={(id) => {
-                    const label = abteilungSearch.labelOf(id);
-                    f.set('abteilung', id, label ?? id);
-                  }}
-                  avatar="none"
-                  columns={1}
-                />
-              </Field>
-
-              {/* Jahresbeitrag-Anzeige */}
-              {selectedAbteilung && (jahresbeitragErwachsene !== null || jahresbeitragKinder !== null) && (
-                <div className="rounded-lg bg-muted px-4 py-3 text-sm space-y-1">
-                  <p className="font-semibold text-foreground">{tx('Jahresbeiträge dieser Abteilung')}</p>
-                  {jahresbeitragErwachsene !== null && (
-                    <p>
-                      {tx('Erwachsene')}{': '}
-                      <span className="font-medium">{jahresbeitragErwachsene} €</span>
-                    </p>
-                  )}
-                  {jahresbeitragKinder !== null && (
-                    <p>
-                      {tx('Kinder')}{': '}
-                      <span className="font-medium">{jahresbeitragKinder} €</span>
-                    </p>
-                  )}
-                </div>
-              )}
-
-              <Field form={f} name="beitragsklasse">
-                <ChoiceGroup
-                  {...f.choice('beitragsklasse')}
-                  options={beitragsklasseOptions}
-                />
-              </Field>
-
-              <StepNav
-                onBack={() => setStep(2)}
-                onNext={() => f.validate(['abteilung', 'beitragsklasse'])}
-                nextStepLabel={tx('SEPA-Mandat')}
+        <WizardStep
+          label={tx('Mitgliedschaft')}
+          description={tx('Wählen Sie Ihre Abteilung und Beitragsklasse.')}
+        >
+          <div className="space-y-6">
+            <Field form={f} name="abteilung">
+              <EntitySelectStep
+                {...abteilungSearch.select}
+                id={f.record('abteilung').id}
+                invalid={f.record('abteilung').invalid}
+                selectedId={abteilungId}
+                onSelect={(id) => {
+                  const label = abteilungSearch.labelOf(id);
+                  f.set('abteilung', id, label ?? id);
+                }}
+                avatar="none"
+                columns={1}
               />
-            </div>
-          </WizardStep>
-        )}
+            </Field>
 
-        {/* Schritt 4: SEPA-Mandat */}
-        {step === 4 && !submit.done && (
-          <WizardStep
-            label={tx('SEPA-Mandat')}
-            description={tx('Erteilen Sie dem Verein eine SEPA-Lastschrift-Genehmigung.')}
-          >
-            <div className="space-y-5">
-              <div className="rounded-lg border p-4 space-y-3">
-                <p className="text-sm text-muted-foreground">
-                  {tx('Mit Ihrer Unterschrift (Klick auf die Checkbox) ermächtigen Sie den Verein, Beiträge von Ihrem Konto per Lastschrift einzuziehen. Sie können das Mandat jederzeit schriftlich widerrufen.')}
-                </p>
-                <Field form={f} name="sepa_mandat" hideLabel>
-                  <div className="flex items-start gap-3">
-                    <input
-                      type="checkbox"
-                      id={f.checkbox('sepa_mandat').id}
-                      checked={!!sepaChecked}
-                      onChange={e => {
-                        f.set('sepa_mandat', e.target.checked);
-                        if (e.target.checked) setSepaMandatError(false);
-                      }}
-                      className="mt-0.5 h-4 w-4 rounded border-input"
-                      aria-required="true"
-                      aria-invalid={sepaMandatError || undefined}
-                    />
-                    <label htmlFor={f.checkbox('sepa_mandat').id} className="text-sm font-medium leading-snug cursor-pointer">
-                      {tx('Ich ermächtige den Verein zum Lastschrifteinzug (SEPA-Mandat)')}
-                      <span className="text-destructive ml-1">*</span>
-                    </label>
-                  </div>
-                </Field>
-                {sepaMandatError && (
-                  <p className="text-sm text-destructive">
-                    {tx('Bitte bestätigen Sie das SEPA-Mandat, um fortzufahren.')}
+            {/* Jahresbeitrag-Anzeige */}
+            {selectedAbteilung && (jahresbeitragErwachsene !== null || jahresbeitragKinder !== null) && (
+              <div className="rounded-lg bg-muted px-4 py-3 text-sm space-y-1">
+                <p className="font-semibold text-foreground">{tx('Jahresbeiträge dieser Abteilung')}</p>
+                {jahresbeitragErwachsene !== null && (
+                  <p>
+                    {tx('Erwachsene')}{': '}
+                    <span className="font-medium">{jahresbeitragErwachsene} €</span>
+                  </p>
+                )}
+                {jahresbeitragKinder !== null && (
+                  <p>
+                    {tx('Kinder')}{': '}
+                    <span className="font-medium">{jahresbeitragKinder} €</span>
                   </p>
                 )}
               </div>
-              <StepNav
-                onBack={() => setStep(3)}
-                onNext={handleSepaNext}
-                nextStepLabel={tx('Zusammenfassung')}
+            )}
+
+            <Field form={f} name="beitragsklasse">
+              <ChoiceGroup
+                {...f.choice('beitragsklasse')}
+                options={beitragsklasseOptions}
               />
+            </Field>
+
+            <StepNav
+              onBack={() => setStep(2)}
+              onNext={() => f.validate(['abteilung', 'beitragsklasse'])}
+              nextStepLabel={tx('SEPA-Mandat')}
+            />
+          </div>
+        </WizardStep>
+
+        {/* Schritt 4: SEPA-Mandat */}
+        <WizardStep
+          label={tx('SEPA-Mandat')}
+          description={tx('Erteilen Sie dem Verein eine SEPA-Lastschrift-Genehmigung.')}
+        >
+          <div className="space-y-5">
+            <div className="rounded-lg border p-4 space-y-3">
+              <p className="text-sm text-muted-foreground">
+                {tx('Mit Ihrer Unterschrift (Klick auf die Checkbox) ermächtigen Sie den Verein, Beiträge von Ihrem Konto per Lastschrift einzuziehen. Sie können das Mandat jederzeit schriftlich widerrufen.')}
+              </p>
+              <Field form={f} name="sepa_mandat" hideLabel>
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    {...sepaCheckboxProps}
+                    checked={!!sepaChecked}
+                    onCheckedChange={checked => {
+                      f.set('sepa_mandat', !!checked);
+                      if (checked) setSepaMandatError(false);
+                    }}
+                    aria-required="true"
+                    aria-invalid={sepaMandatError || undefined}
+                  />
+                  <Label htmlFor={sepaCheckboxProps.id} className="text-sm font-medium leading-snug cursor-pointer">
+                    {tx('Ich ermächtige den Verein zum Lastschrifteinzug (SEPA-Mandat)')}
+                    <span className="text-destructive ml-1">*</span>
+                  </Label>
+                </div>
+              </Field>
+              {sepaMandatError && (
+                <p className="text-sm text-destructive">
+                  {tx('Bitte bestätigen Sie das SEPA-Mandat, um fortzufahren.')}
+                </p>
+              )}
             </div>
-          </WizardStep>
-        )}
+            <StepNav
+              onBack={() => setStep(3)}
+              onNext={handleSepaNext}
+              nextStepLabel={tx('Zusammenfassung')}
+            />
+          </div>
+        </WizardStep>
 
         {/* Schritt 5: Zusammenfassung */}
-        {step === 5 && !submit.done && (
+        <WizardStep label={tx('Zusammenfassung')}>
           <SummaryStep
             forms={[f]}
             submit={submit}
             whatHappensNext={tx('Ihr Beitrittsantrag wird vom Vorstand geprüft. Sie erhalten eine Bestätigung per E-Mail.')}
             confirmLabel={tx('Jetzt Mitglied werden')}
           />
-        )}
+        </WizardStep>
 
         {/* Erfolg */}
         {submit.result && (
