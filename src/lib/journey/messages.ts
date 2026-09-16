@@ -39,6 +39,12 @@ export type MessageFieldKey<E extends EntityKey> = E extends keyof MessageFields
 
 export const REQUIRED_MESSAGES: { [E in EntityKey]?: Partial<Record<MessageFieldKey<E>, string>> } = {
   // <custom:messages>
+  abteilungen: { name: "Bitte die Abteilung auswählen.", jahresbeitrag_erwachsene: "Bitte den Jahresbeitrag für Erwachsene eingeben.", jahresbeitrag_kinder: "Bitte den Jahresbeitrag für Kinder eingeben." },
+  mitglieder: { mitgliedsnummer: "Bitte die Mitgliedsnummer eingeben.", vorname: "Bitte den Vornamen eingeben.", nachname: "Bitte den Nachnamen eingeben.", geburtsdatum: "Bitte das Geburtsdatum eingeben.", eintrittsdatum: "Bitte das Eintrittsdatum eingeben.", status: "Bitte den Mitgliedsstatus wählen.", beitragsklasse: "Bitte die Beitragsklasse wählen.", abteilung: "Bitte die Abteilung des Mitglieds auswählen." },
+  beitraege: { jahr: "Bitte das Beitragsjahr eingeben.", betrag: "Bitte den Beitragsbetrag eingeben.", faellig_am: "Bitte das Fälligkeitsdatum wählen.", status: "Bitte den Zahlungsstatus wählen.", mitglied: "Bitte das zugehörige Mitglied auswählen." },
+  veranstaltungen: { titel: "Bitte den Titel der Veranstaltung eingeben.", datum: "Bitte Datum und Uhrzeit der Veranstaltung wählen.", ort: "Bitte den Veranstaltungsort eingeben.", status: "Bitte den Status der Veranstaltung wählen." },
+  anmeldungen: { angemeldet_am: "Bitte das Anmeldedatum eingeben.", anzahl_personen: "Bitte die Anzahl der Personen angeben.", status: "Bitte den Anmeldestatus wählen.", veranstaltung: "Bitte die Veranstaltung auswählen.", mitglied: "Bitte das anzumeldende Mitglied auswählen." },
+  helferschichten: { bezeichnung: "Bitte die Bezeichnung der Schicht eingeben.", beginn: "Bitte den Schichtbeginn wählen.", ende: "Bitte das Schichtende wählen.", benoetigte_helfer: "Bitte die Anzahl benötigter Helfer eingeben.", veranstaltung: "Bitte die Veranstaltung auswählen." },
   // </custom:messages>
 };
 
