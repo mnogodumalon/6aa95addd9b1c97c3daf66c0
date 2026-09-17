@@ -1,25 +1,4 @@
 {
   "version": 1,
-  "pages": [
-    {
-      "slug": "mitglied-werden",
-      "type": "custom",
-      "entity": "mitglieder",
-      "title": "Mitglied werden",
-      "published": true,
-      "fields": [
-        "vorname",
-        "nachname",
-        "geburtsdatum",
-        "email",
-        "telefon",
-        "strasse",
-        "hausnummer",
-        "plz",
-        "ort",
-        "sepa_mandat",
-        "abteilung"
-      ]
-    }
-  ]
+  "pages": []
 }
