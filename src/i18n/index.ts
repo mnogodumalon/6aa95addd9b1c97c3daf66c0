@@ -341,6 +341,7 @@ export const UI_CATALOG: Record<CoreLocale, Record<string, string>> = {
     "ppa_can_view": "diese Daten sehen",
     "ppa_cannot_line": "bestehende Daten sehen oder ändern.",
     "ppa_cannot_change_line": "bestehende Daten ändern oder löschen.",
+    "ppa_link_param_note": "Der Link pro Eintrag zeigt Besuchern nur diesen einen Eintrag. Technisch lesbar sind über die Seite trotzdem alle Einträge der aufgeführten Listen — ein Scope in der Liste begrenzt das.",
     "ppa_cancel": "Abbrechen",
     "ppa_confirm_publish": "Veröffentlichen",
     "ps_preview_banner": "Vorschau — nur du siehst diese Seite. Absenden legt einen echten Eintrag an.",
@@ -910,6 +911,7 @@ export const UI_CATALOG: Record<CoreLocale, Record<string, string>> = {
     "ppa_can_view": "see this data",
     "ppa_cannot_line": "see or change existing data.",
     "ppa_cannot_change_line": "change or delete existing data.",
+    "ppa_link_param_note": "A per-record link shows a visitor just that one record. Technically the page can still read every record of the lists above — a scope on the list narrows that.",
     "ppa_cancel": "Cancel",
     "ppa_confirm_publish": "Publish",
     "ps_preview_banner": "Preview — only you can see this page. Submitting creates a real record.",
@@ -1453,7 +1455,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "ort": "City",
           "maximale_teilnehmer": "Maximum Participants",
           "anmeldeschluss": "Registration Deadline",
-          "kostenbeitrag": "Participation Fee (€)",
+          "kostenbeitrag": "Cost Contribution (€)",
           "status": "Status",
           "abteilung": "Department (optional)"
         },
@@ -1491,10 +1493,10 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
         "name": "Volunteer Shifts",
         "app_id": "6aa95a99a402ee527ca028ee",
         "fields": {
-          "bezeichnung": "Label",
+          "bezeichnung": "Title",
           "beginn": "Start",
           "ende": "End",
-          "benoetigte_helfer": "Required Volunteers",
+          "benoetigte_helfer": "Volunteers Required",
           "bemerkung": "Remark",
           "veranstaltung": "Event",
           "helfer": "Volunteer"
