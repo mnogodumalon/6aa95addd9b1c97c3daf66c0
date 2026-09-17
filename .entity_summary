@@ -58,7 +58,7 @@ createRecordUrl from the service. Note the lowercase `l` in the service path.
   ✚ EnrichedAbteilungen adds ONLY abteilungsleiterName — via enrichAbteilungen(abteilungen, { mitgliederMap }), all maps required
   → abteilungsleiter links to app_id 6aa95a95f2a4e541ade76e40
 - Mitglieder (mitglieder): mitgliedsnummer!^[string/text], vorname!^[string/text], nachname!^[string/text], geburtsdatum!^[date/date], email^[string/email] "E-Mail", telefon[string/tel], strasse[string/text], hausnummer[string/text], plz[string/text] "Postleitzahl", ort[string/text], eintrittsdatum![date/date], austrittsdatum[date/date], status![lookup/radio: aktiv|passiv|ausgetreten], beitragsklasse![lookup/select: erwachsener|kind|familie|ehrenmitglied], sepa_mandat[bool] "SEPA-Mandat vorhanden", notizen[string/textarea], abteilung![applookup/select]
-  ≡ 6 records at build time
+  ≡ 7 records at build time
   ◈ status → choice (3 options, ChoiceGroup) · beitragsklasse → choice (4 options, ChoiceGroup) · abteilung → record (abteilungen, EntitySelectStep)
   ⚙ getMitglieder() · getMitgliederEntry(id) · createMitgliederEntry(fields) · updateMitgliederEntry(id, fields) · deleteMitgliederEntry(id) · queryMitglieder({ filter, orderby, limit, offset, fields }) · countMitglieder(filter?)
   ✚ EnrichedMitglieder adds ONLY abteilungName — via enrichMitglieder(mitglieder, { abteilungenMap }), all maps required

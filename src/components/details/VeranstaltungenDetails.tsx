@@ -57,7 +57,7 @@ export function VeranstaltungenDetails({
       <RecordSection title={t('relations')} cols={1}>
         <RecordRelation
           label={fieldLabel('veranstaltungen', 'abteilung')}
-          name={String(abteilungTarget?.fields.name ?? '—')}
+          name={abteilungTarget?.fields.name?.label ?? '—'}
           meta={undefined}
           onClick={abteilungTarget && onOpenAbteilungen ? () => onOpenAbteilungen!(abteilungTarget!) : undefined}
         />
