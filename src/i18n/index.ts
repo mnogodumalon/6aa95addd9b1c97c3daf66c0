@@ -1453,9 +1453,9 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "beschreibung": "Description",
           "datum": "Date and Time",
           "ort": "City",
-          "maximale_teilnehmer": "Maximum Attendees",
+          "maximale_teilnehmer": "Maximum Participants",
           "anmeldeschluss": "Registration Deadline",
-          "kostenbeitrag": "Fee (€)",
+          "kostenbeitrag": "Participation Fee (€)",
           "status": "Status",
           "abteilung": "Department (optional)"
         },
@@ -1496,7 +1496,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "bezeichnung": "Name",
           "beginn": "Start",
           "ende": "End",
-          "benoetigte_helfer": "Required Volunteers",
+          "benoetigte_helfer": "Volunteers Required",
           "bemerkung": "Remarks",
           "veranstaltung": "Event",
           "helfer": "Volunteers"
