@@ -185,7 +185,7 @@ export default function PublicPagesAdmin() {
 
   const entries = Object.values(pages).sort((a, b) => a.title.localeCompare(b.title));
   const confirmPage = confirmSlug ? pages[confirmSlug] : null;
-  const caps = confirmPage ? capabilities(confirmPage) : { submit: [], view: [] };
+  const caps = confirmPage ? capabilities(confirmPage) : { submit: [] as string[], view: [] as string[] };
 
   return (
     <PageShell

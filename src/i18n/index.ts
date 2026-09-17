@@ -1427,7 +1427,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "betrag": "Amount (€)",
           "faellig_am": "Due Date",
           "status": "Status",
-          "bezahlt_am": "Paid on",
+          "bezahlt_am": "Paid On",
           "zahlungsart": "Payment Method",
           "mitglied": "Member"
         },
@@ -1455,7 +1455,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "ort": "City",
           "maximale_teilnehmer": "Maximum Participants",
           "anmeldeschluss": "Registration Deadline",
-          "kostenbeitrag": "Fee (€)",
+          "kostenbeitrag": "Participation Fee (€)",
           "status": "Status",
           "abteilung": "Department (optional)"
         },
@@ -1473,7 +1473,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
         "name": "Registrations",
         "app_id": "6aa95a9820e5f397b441c6bb",
         "fields": {
-          "angemeldet_am": "Registered on",
+          "angemeldet_am": "Registered On",
           "anzahl_personen": "Number of Persons",
           "status": "Status",
           "bemerkung": "Remarks",
@@ -1493,7 +1493,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
         "name": "Volunteer Shifts",
         "app_id": "6aa95a99a402ee527ca028ee",
         "fields": {
-          "bezeichnung": "Name",
+          "bezeichnung": "Label",
           "beginn": "Start",
           "ende": "End",
           "benoetigte_helfer": "Volunteers Required",
