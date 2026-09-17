@@ -1,4 +1,41 @@
 {
   "version": 1,
-  "pages": []
+  "pages": [
+    {
+      "slug": "mitglied-werden",
+      "component": "MitgliedWerden",
+      "title": "Mitglied werden",
+      "endpoints": [
+        {
+          "entity": "abteilungen",
+          "op": "list",
+          "fields": [
+            "name",
+            "jahresbeitrag_erwachsene",
+            "jahresbeitrag_kinder"
+          ],
+          "max_records": 50,
+          "scope_description": "Alle Abteilungen des Vereins – wird zur Auswahl im Beitrittsformular angezeigt"
+        },
+        {
+          "entity": "mitglieder",
+          "op": "create",
+          "fields": [
+            "vorname",
+            "nachname",
+            "geburtsdatum",
+            "email",
+            "telefon",
+            "strasse",
+            "hausnummer",
+            "plz",
+            "ort",
+            "beitragsklasse",
+            "sepa_mandat",
+            "abteilung"
+          ]
+        }
+      ]
+    }
+  ]
 }
