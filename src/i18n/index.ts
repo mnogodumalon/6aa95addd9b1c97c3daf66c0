@@ -1476,7 +1476,7 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
           "angemeldet_am": "Registered On",
           "anzahl_personen": "Number of Persons",
           "status": "Status",
-          "bemerkung": "Remark",
+          "bemerkung": "Remarks",
           "veranstaltung": "Event",
           "mitglied": "Member"
         },
@@ -1493,11 +1493,11 @@ export const LABELS: Record<CoreLocale, LabelBundle> = {
         "name": "Volunteer Shifts",
         "app_id": "6aa95a99a402ee527ca028ee",
         "fields": {
-          "bezeichnung": "Label",
+          "bezeichnung": "Name",
           "beginn": "Start",
           "ende": "End",
           "benoetigte_helfer": "Volunteers Needed",
-          "bemerkung": "Remark",
+          "bemerkung": "Remarks",
           "veranstaltung": "Event",
           "helfer": "Volunteers"
         },
