@@ -1,40 +1,4 @@
 {
   "version": 1,
-  "pages": [
-    {
-      "slug": "mitglied-werden",
-      "component": "MitgliedWerden",
-      "title": "Mitglied werden",
-      "endpoints": [
-        {
-          "entity": "abteilungen",
-          "op": "list",
-          "fields": [
-            "name",
-            "jahresbeitrag_erwachsene",
-            "jahresbeitrag_kinder"
-          ],
-          "scope_description": "Zeigt alle Abteilungen mit Namen und Jahresbeiträgen für die Auswahl",
-          "max_records": 50
-        },
-        {
-          "entity": "mitglieder",
-          "op": "create",
-          "fields": [
-            "vorname",
-            "nachname",
-            "geburtsdatum",
-            "email",
-            "telefon",
-            "strasse",
-            "hausnummer",
-            "plz",
-            "ort",
-            "abteilung",
-            "sepa_mandat"
-          ]
-        }
-      ]
-    }
-  ]
+  "pages": []
 }
