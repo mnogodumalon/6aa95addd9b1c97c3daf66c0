@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "flows": [],
+  "unregistered_pages": [
+    {
+      "file": "src/pages/intents/HelferschichtEintragenPage.tsx",
+      "summary": "/**\n * Helferschicht eintragen — 4-Schritt-Wizard (+ Erfolg).\n * Steps: 1) Veranstaltung wählen → 2) Schicht erfassen → 3) Helfer zuweisen (optional) → 4) Zusammenfassung.\n * Reads: veranstaltungen (filter: nicht abgesagt/durchgefuehrt), mitglieder (filter: aktiv).\n * Writes: helferschichten (createHelferschichtenEntry).\n * Composes: IntentWizardShell, WizardStep, EntitySelectStep, Bound, Field, DatePicker,\n *           BudgetTracker, StepNav, SummaryStep, SuccessStep.\n */",
+      "components": [
+        "Bound",
+        "BudgetTracker",
+        "DatePicker",
+        "EntitySelectStep",
+        "Field",
+        "IntentWizardShell",
+        "StepNav",
+        "SuccessStep",
+        "SummaryStep",
+        "WizardStep"
+      ],
+      "writes": []
+    },
+    {
+      "file": "src/pages/intents/JahresbeitraegeErzeugenPage.tsx",
+      "summary": "/**\n * Jahresbeiträge erzeugen — 4-Schritt-Wizard.\n * Steps: 1) Jahr & Fälligkeit wählen → 2) Vorschau der betroffenen Mitglieder → 3) Zusammenfassung → 4) Erfolg.\n * Reads: mitglieder (aktiv), beitraege (bestehendes Jahr), abteilungen (Beitragsberechnung).\n * Writes: beitraege (createBeitraegeEntry) — je ein Datensatz pro Mitglied ohne bestehenden Beitrag.\n * Composes: IntentWizardShell, WizardStep, StepNav, SummaryStep, SuccessStep, ChoiceGroup, Field, Bound.\n */",
+      "components": [
+        "Bound",
+        "IntentWizardShell",
+        "StatusBadge",
+        "StepNav",
+        "SuccessStep",
+        "SummaryStep",
+        "WizardStep"
+      ],
+      "writes": []
+    },
+    {
+      "file": "src/pages/intents/VeranstaltungAnmeldenPage.tsx",
+      "summary": "/**\n * Veranstaltung Anmelden — 3-Schritt-Wizard.\n * Steps: 1) Veranstaltung wählen (nur offen_anmeldung, Anmeldeschluss ok) →\n *         2) Mitglied wählen (nur aktive, noch nicht angemeldet) + Personenzahl + Bemerkung →\n *         3) Zusammenfassung & Bestätigen.\n * Reads: veranstaltungen, mitglieder, anmeldungen (Kapazitätscheck).\n * Writes: anmeldungen (createAnmeldungenEntry) — Status 'angemeldet' oder 'warteliste'.\n * Composes: IntentWizardShell, WizardStep, EntitySelectStep, Bound, BudgetTracker,\n *           StepNav, SummaryStep, SuccessStep.\n */",
+      "components": [
+        "Bound",
+        "BudgetTracker",
+        "EntitySelectStep",
+        "IntentWizardShell",
+        "StatusBadge",
+        "StepNav",
+        "SuccessStep",
+        "SummaryStep",
+        "WizardStep"
+      ],
+      "writes": []
+    }
+  ]
+}
